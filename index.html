@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Untitled</title>
-    
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
-<html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,12 +34,11 @@
       overflow-x: hidden;
     }
 
-    /* ─── HERO ─────────────────────────────────── */
     .hero {
       min-height: 100vh;
       background:
         linear-gradient(160deg, rgba(15, 52, 96, 0.92) 0%, rgba(5, 10, 21, 0.97) 60%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect fill="%230f3460"/><circle cx="400" cy="300" r="250" fill="none" stroke="%234BA3D3" stroke-width="1" opacity="0.15"/><circle cx="400" cy="300" r="180" fill="none" stroke="%234BA3D3" stroke-width="1" opacity="0.1"/><circle cx="400" cy="300" r="110" fill="none" stroke="%234BA3D3" stroke-width="1" opacity="0.08"/></svg>') center/cover;
+        url('Michelle3.PNG') center/cover;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
@@ -122,8 +110,6 @@
       flex-wrap: wrap;
     }
 
-    .meta-item {}
-
     .meta-label {
       font-size: 0.65rem;
       letter-spacing: 0.2em;
@@ -186,17 +172,12 @@
       line-height: 1;
     }
 
-    .gold-card .pb-time {
-      color: var(--gold);
-    }
-
     .pb-pts {
       font-size: 0.8rem;
       color: var(--blue);
       font-weight: 600;
     }
 
-    /* ─── SECTION WRAPPER ───────────────────────── */
     .section {
       padding: 5rem 8vw;
     }
@@ -237,7 +218,6 @@
       line-height: 1;
     }
 
-    /* ─── STATS BAND ────────────────────────────── */
     .stats-band {
       background: var(--navy);
       padding: 2.5rem 8vw;
@@ -273,14 +253,11 @@
       margin-top: 0.3rem;
     }
 
-    /* ─── PERSONAL BESTS ─────────────────────────── */
     .pb-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2.5rem;
     }
-
-    .stroke-block {}
 
     .stroke-title {
       font-family: 'Barlow Condensed', sans-serif;
@@ -363,7 +340,6 @@
       background: rgba(255, 255, 255, 0.02);
     }
 
-    /* ─── RANKINGS ───────────────────────────────── */
     .rankings-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -423,8 +399,6 @@
       align-items: flex-end;
     }
 
-    .rank-num-block {}
-
     .rank-num {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 2.5rem;
@@ -453,7 +427,6 @@
       color: var(--blue);
     }
 
-    /* ─── PROGRESSION ───────────────────────────── */
     .progression-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -530,7 +503,6 @@
       color: var(--gold);
     }
 
-    /* ─── COMPETITION HISTORY ────────────────────── */
     .comp-table {
       width: 100%;
       border-collapse: collapse;
@@ -581,8 +553,6 @@
       color: var(--text);
     }
 
-    .comp-table .td-pool {}
-
     .comp-table .td-time {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.1rem;
@@ -615,7 +585,6 @@
       color: var(--blue);
     }
 
-    /* ─── FOOTER ─────────────────────────────────── */
     .footer {
       background: var(--darker);
       border-top: 1px solid var(--border);
@@ -628,12 +597,22 @@
     }
 
     .footer-logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--gold);
-      letter-spacing: 0.08em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-logo img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo span {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.05em;
     }
 
     .footer-info {
@@ -654,7 +633,6 @@
       line-height: 1.8;
     }
 
-    /* ─── HIGHLIGHT BOX ──────────────────────────── */
     .highlight-box {
       background: linear-gradient(135deg, rgba(15, 52, 96, 0.6), rgba(75, 163, 211, 0.1));
       border: 1px solid rgba(75, 163, 211, 0.3);
@@ -684,20 +662,6 @@
       color: var(--gold);
     }
 
-    /* flag */
-    .flag-est {
-      display: inline-flex;
-      gap: 1px;
-      vertical-align: middle;
-      margin-right: 0.3rem;
-    }
-
-    .flag-est span {
-      display: block;
-      width: 18px;
-      height: 6px;
-    }
-
     @media print {
       body {
         background: white;
@@ -709,12 +673,24 @@
         padding: 2rem;
       }
     }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 4rem 5vw;
+      }
+      .pb-grid, .progression-grid, .rankings-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-band {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- ═══ HERO ═══ -->
   <section class="hero">
     <div class="hero-left">
       <div class="hero-tag">Athlete Portfolio · 2026</div>
@@ -753,7 +729,6 @@
           <div class="pb-time">30.74</div>
           <div class="pb-pts">453 pts · MadWave Challenge · 29 Mar 2026</div>
         </div>
-      </div>
       <div class="hero-pb-card">
         <div>
           <div class="pb-label">Alltime PB · 100m Free SCM</div>
@@ -778,7 +753,6 @@
     </div>
   </section>
 
-  <!-- ═══ STATS BAND ═══ -->
   <div class="stats-band">
     <div class="stat-item">
       <div class="stat-num">5</div>
@@ -798,7 +772,6 @@
     </div>
   </div>
 
-  <!-- ═══ PERSONAL BESTS ═══ -->
   <section class="section">
     <div class="section-header">
       <div class="section-label">Alltime Records</div>
@@ -817,7 +790,6 @@
 
     <div class="pb-grid">
 
-      <!-- FREESTYLE -->
       <div class="stroke-block">
         <div class="stroke-title">Freestyle</div>
         <table class="pb-table">
@@ -870,7 +842,6 @@
         </table>
       </div>
 
-      <!-- BACKSTROKE -->
       <div class="stroke-block">
         <div class="stroke-title">Backstroke</div>
         <table class="pb-table">
@@ -923,7 +894,6 @@
         </table>
       </div>
 
-      <!-- BUTTERFLY & MEDLEY -->
       <div class="stroke-block">
         <div class="stroke-title">Butterfly &amp; Medley</div>
         <table class="pb-table">
@@ -969,7 +939,6 @@
         </table>
       </div>
 
-      <!-- WORLD AQUATICS BASE TIMES REFERENCE -->
       <div class="stroke-block">
         <div class="stroke-title">World Aquatics Base Times Reference</div>
         <table class="pb-table">
@@ -1028,7 +997,6 @@
     </div>
   </section>
 
-  <!-- ═══ NATIONAL RANKINGS ═══ -->
   <section class="section section-alt">
     <div class="section-header">
       <div class="section-label">Season 2026 · EST</div>
@@ -1098,7 +1066,8 @@
 
       <div class="rank-card">
         <div class="rank-event">100m Backstroke <span class="rank-pool-tag scm">SCM</span></div>
-        <div class="rank-numbers">
+      
+               <div class="rank-numbers">
           <div class="rank-num-block">
             <div class="rank-num">#16</div>
             <div class="rank-num-label">EST under 14</div>
@@ -1147,7 +1116,6 @@
     </div>
   </section>
 
-  <!-- ═══ PROGRESSION ═══ -->
   <section class="section">
     <div class="section-header">
       <div class="section-label">Season by Season</div>
@@ -1276,7 +1244,6 @@
     </div>
   </section>
 
-  <!-- ═══ COMPETITION HISTORY ═══ -->
   <section class="section section-alt">
     <div class="section-header">
       <div class="section-label">Race Results</div>
@@ -1416,9 +1383,11 @@
     </table>
   </section>
 
-  <!-- ═══ FOOTER ═══ -->
   <footer class="footer">
-    <div class="footer-logo">Aquaway<br><span style="font-size:0.7rem;font-weight:400;color:var(--muted);letter-spacing:0.05em;">Spordikool</span></div>
+    <div class="footer-logo">
+      <img src="AQUAWAY.png" alt="Aquaway">
+      <span>Spordikool</span>
+    </div>
     <div class="footer-info">
       <strong>Michelle Feldman</strong><br>
       Aquaway Spordikool · EST · Born 2014<br>
@@ -1433,8 +1402,4 @@
 
 </body>
 
-</html>
-    
-  </body>
-  
 </html>
