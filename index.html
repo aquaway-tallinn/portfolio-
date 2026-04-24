@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Michelle Feldman — Athlete Portfolio 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Oswald:wght@700&display=swap" rel="stylesheet">
   <style>
@@ -26,52 +26,80 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Barlow', sans-serif;
       background: var(--darker);
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     .hero {
-      min-height: 100vh;
-      background:
-        linear-gradient(160deg, rgba(15, 52, 96, 0.92) 0%, rgba(5, 10, 21, 0.97) 60%),
-        url('Michelle3.PNG') center/cover;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 0 8vw;
-      gap: 4rem;
+      min-height: 90vh;
+      background: 
+        linear-gradient(160deg, rgba(15, 52, 96, 0.7) 0%, rgba(5, 10, 21, 0.85) 100%),
+        url('IMG_1883.PNG') center 30%/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 5vw;
       position: relative;
       overflow: hidden;
     }
 
+    /* ЗАКРЫВАЕМ KIA ЛОГОТИПОМ AQUAWAY */
     .hero::before {
       content: '';
       position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(75, 163, 211, 0.08) 0%, transparent 70%);
-      border-radius: 50%;
+      top: 26%;
+      right: 5.5%;
+      width: clamp(120px, 20vw, 200px);
+      height: clamp(60px, 10vw, 100px);
+      background: url('IMG_2211.jpg') center/contain no-repeat;
+      filter: brightness(0) invert(1);
+      transform: perspective(600px) rotateY(-20deg) rotateX(8deg);
+      opacity: 1;
+      z-index: 4;
+      pointer-events: none;
     }
 
-    .hero-left {
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(180deg, transparent 0%, var(--darker) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
       position: relative;
       z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .hero-tag {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--blue);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -90,75 +118,68 @@
       font-weight: 900;
       line-height: 0.9;
       text-transform: uppercase;
+      margin-bottom: 1.5rem;
     }
 
     .hero-name .first {
-      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-size: clamp(2.5rem, 12vw, 5rem);
       color: #fff;
     }
 
     .hero-name .last {
-      font-size: clamp(4rem, 8vw, 7.5rem);
+      font-size: clamp(3rem, 15vw, 6.5rem);
       color: var(--gold);
       display: block;
     }
 
     .hero-meta {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 2rem;
+      margin-bottom: 2rem;
+      max-width: 500px;
     }
 
     .meta-label {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.1rem;
     }
 
     .meta-value {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: #fff;
     }
 
-    .hero-right {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .hero-pb-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 500px;
     }
 
     .hero-pb-card {
-      background: rgba(75, 163, 211, 0.08);
-      border: 1px solid rgba(75, 163, 211, 0.25);
+      background: rgba(75, 163, 211, 0.1);
+      border: 1px solid rgba(75, 163, 211, 0.3);
       border-left: 3px solid var(--blue);
       border-radius: 4px;
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 0.75rem 1rem;
       backdrop-filter: blur(10px);
-      transition: background 0.3s;
-    }
-
-    .hero-pb-card:hover {
-      background: rgba(75, 163, 211, 0.14);
     }
 
     .hero-pb-card.gold-card {
       border-left-color: var(--gold);
-      background: rgba(245, 184, 0, 0.08);
-      border-color: rgba(245, 184, 0, 0.25);
-      border-left: 3px solid var(--gold);
+      background: rgba(245, 184, 0, 0.1);
+      border-color: rgba(245, 184, 0, 0.3);
     }
 
     .pb-label {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--muted);
@@ -166,32 +187,86 @@
 
     .pb-time {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 800;
       color: var(--gold);
       line-height: 1;
     }
 
     .pb-pts {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--blue);
       font-weight: 600;
     }
 
-    .section {
-      padding: 5rem 8vw;
+    .stats-band {
+      background: var(--navy);
+      padding: 2rem 5vw;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      border-top: 2px solid var(--gold);
+      width: 100%;
     }
 
-    .section-alt {
-      background: var(--card);
+    .stat-item {
+      padding: 1rem;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
+
+    .stat-item:nth-child(2n) { border-right: none; }
+    .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .section {
+      padding: 3rem 5vw;
+      position: relative;
+      width: 100%;
+    }
+
+    .section-alt { background: var(--card); }
+
+    .section-bg-img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      opacity: 0.04;
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .section-bg-img.pb-bg { background-image: url('IMG_1863.PNG'); }
+    .section-bg-img.rank-bg { background-image: url('Michelle4.PNG'); }
 
     .section-header {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
     }
 
     .section-label {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--blue);
@@ -211,108 +286,81 @@
 
     .section-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.75rem, 8vw, 2.5rem);
       font-weight: 800;
       text-transform: uppercase;
       color: #fff;
       line-height: 1;
     }
 
-    .stats-band {
-      background: var(--navy);
-      padding: 2.5rem 8vw;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      border-top: 2px solid var(--gold);
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(15, 52, 96, 0.6), rgba(75, 163, 211, 0.1));
+      border: 1px solid rgba(75, 163, 211, 0.3);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .stat-item {
-      padding: 1.5rem 2rem;
-      text-align: center;
-      border-right: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .stat-item:last-child {
-      border-right: none;
-    }
-
-    .stat-num {
+    .highlight-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 3rem;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .stat-label {
       font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 0.3rem;
-    }
-
-    .pb-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-    }
-
-    .stroke-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.1rem;
       font-weight: 700;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--blue);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
     }
 
-    .pb-table {
+    .highlight-text {
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .highlight-text strong { color: var(--gold); }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pb-table, .comp-table {
       width: 100%;
       border-collapse: collapse;
+      min-width: 600px;
     }
 
-    .pb-table thead tr {
+    .pb-table thead tr, .comp-table thead tr {
       border-bottom: 1px solid var(--border);
     }
 
-    .pb-table th {
-      font-size: 0.62rem;
+    .pb-table th, .comp-table th {
+      font-size: 0.6rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-      padding: 0.4rem 0.75rem;
+      padding: 0.5rem 0.5rem;
       text-align: left;
       font-weight: 600;
+      white-space: nowrap;
     }
 
-    .pb-table th:last-child {
-      text-align: right;
-    }
-
-    .pb-table td {
-      padding: 0.6rem 0.75rem;
-      font-size: 0.88rem;
+    .pb-table td, .comp-table td {
+      padding: 0.6rem 0.5rem;
+      font-size: 0.8rem;
       color: var(--text);
       border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .pb-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .pb-table td:first-child {
-      color: var(--muted);
-      font-size: 0.8rem;
+      white-space: nowrap;
     }
 
     .pb-table .time-cell {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--gold);
     }
@@ -321,36 +369,34 @@
       text-align: right;
       color: var(--blue);
       font-weight: 600;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
     }
 
-    .pb-table .pool-scm {
-      color: #4BA3D3;
-      font-size: 0.7rem;
+    .pool-badge {
+      display: inline-block;
+      font-size: 0.55rem;
       font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.15rem 0.3rem;
+      border-radius: 2px;
     }
 
-    .pb-table .pool-lcm {
-      color: var(--gold);
-      font-size: 0.7rem;
-      font-weight: 700;
-    }
-
-    .pb-table tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
-    }
+    .pool-badge.lcm { background: rgba(245, 184, 0, 0.15); color: var(--gold); }
+    .pool-badge.scm { background: rgba(75, 163, 211, 0.15); color: var(--blue); }
 
     .rankings-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .rank-card {
       background: var(--card2);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 1.25rem 1.5rem;
+      padding: 1rem 1.25rem;
       position: relative;
       overflow: hidden;
     }
@@ -366,32 +412,25 @@
     }
 
     .rank-event {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
     .rank-pool-tag {
       display: inline-block;
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       font-weight: 700;
       letter-spacing: 0.1em;
-      padding: 0.15rem 0.4rem;
+      padding: 0.15rem 0.35rem;
       border-radius: 2px;
       margin-left: 0.4rem;
     }
 
-    .rank-pool-tag.scm {
-      background: rgba(75, 163, 211, 0.15);
-      color: var(--blue);
-    }
-
-    .rank-pool-tag.lcm {
-      background: rgba(245, 184, 0, 0.15);
-      color: var(--gold);
-    }
+    .rank-pool-tag.scm { background: rgba(75, 163, 211, 0.15); color: var(--blue); }
+    .rank-pool-tag.lcm { background: rgba(245, 184, 0, 0.15); color: var(--gold); }
 
     .rank-numbers {
       display: flex;
@@ -401,14 +440,14 @@
 
     .rank-num {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 900;
       line-height: 1;
       color: var(--gold);
     }
 
     .rank-num-label {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
@@ -417,31 +456,33 @@
 
     .rank-divider {
       width: 1px;
-      height: 2.5rem;
+      height: 2.2rem;
       background: var(--border);
       align-self: center;
     }
 
     .rank-num.open-rank {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: var(--blue);
     }
 
     .progression-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      position: relative;
+      z-index: 1;
     }
 
     .prog-card {
       background: var(--card2);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 1.5rem;
+      padding: 1.25rem;
     }
 
     .prog-event {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--muted);
@@ -450,23 +491,23 @@
 
     .prog-best {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--gold);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .prog-row {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.4rem;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
     .prog-year {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--muted);
-      width: 2.2rem;
+      width: 2rem;
       flex-shrink: 0;
     }
 
@@ -482,209 +523,77 @@
       height: 100%;
       border-radius: 2px;
       background: linear-gradient(90deg, var(--navy), var(--blue));
-      transition: width 1s ease;
     }
 
-    .prog-bar.best {
-      background: linear-gradient(90deg, var(--navy), var(--gold));
-    }
+    .prog-bar.best { background: linear-gradient(90deg, var(--navy), var(--gold)); }
 
     .prog-val {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--text);
-      width: 3.8rem;
+      width: 3.5rem;
       text-align: right;
       flex-shrink: 0;
     }
 
-    .prog-val.highlight {
-      color: var(--gold);
-    }
+    .prog-val.highlight { color: var(--gold); }
 
-    .comp-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .comp-table thead tr {
-      background: rgba(75, 163, 211, 0.08);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .comp-table th {
-      padding: 0.75rem 1rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: left;
-      font-weight: 600;
-    }
-
-    .comp-table td {
-      padding: 0.75rem 1rem;
-      font-size: 0.88rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .comp-table tr:hover td {
-      background: rgba(75, 163, 211, 0.04);
-    }
-
-    .comp-table .td-date {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .comp-table .td-meet {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .comp-table .td-city {
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    .comp-table .td-event {
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .comp-table .td-time {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .comp-table .td-pts {
-      color: var(--blue);
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-
-    .pool-badge {
-      display: inline-block;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      padding: 0.15rem 0.4rem;
-      border-radius: 2px;
-    }
-
-    .pool-badge.lcm {
-      background: rgba(245, 184, 0, 0.15);
-      color: var(--gold);
-    }
-
-    .pool-badge.scm {
-      background: rgba(75, 163, 211, 0.15);
-      color: var(--blue);
-    }
+    .comp-table .td-date { color: var(--muted); font-size: 0.75rem; }
+    .comp-table .td-meet { color: var(--text); font-weight: 500; font-size: 0.78rem; }
+    .comp-table .td-city { color: var(--muted); font-size: 0.75rem; }
+    .comp-table .td-event { font-weight: 600; color: var(--text); font-size: 0.78rem; }
+    .comp-table .td-time { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; color: var(--gold); }
+    .comp-table .td-pts { color: var(--blue); font-weight: 600; font-size: 0.8rem; }
 
     .footer {
       background: var(--darker);
       border-top: 1px solid var(--border);
-      padding: 2.5rem 8vw;
+      padding: 2rem 5vw;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
+      text-align: center;
     }
 
     .footer-logo {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .footer-logo img {
-      width: 120px;
+      width: 100px;
       height: auto;
       margin-bottom: 0.5rem;
     }
 
     .footer-logo span {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 400;
       color: var(--muted);
       letter-spacing: 0.05em;
     }
 
     .footer-info {
-      text-align: center;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
-    .footer-info strong {
-      color: var(--text);
-    }
+    .footer-info strong { color: var(--text); }
 
-    .footer-right {
-      text-align: right;
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(15, 52, 96, 0.6), rgba(75, 163, 211, 0.1));
-      border: 1px solid rgba(75, 163, 211, 0.3);
-      border-left: 4px solid var(--gold);
-      border-radius: 4px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .highlight-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-
-    .highlight-text {
-      font-size: 0.92rem;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .highlight-text strong {
-      color: var(--gold);
-    }
-
-    @media print {
-      body {
-        background: white;
-        color: black;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 2rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 4rem 5vw;
-      }
-      .pb-grid, .progression-grid, .rankings-grid {
-        grid-template-columns: 1fr;
-      }
-      .stats-band {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    @media (min-width: 768px) {
+      .hero-meta { grid-template-columns: repeat(3, 1fr); }
+      .stats-band { grid-template-columns: repeat(4, 1fr); }
+      .stat-item:nth-child(2n) { border-right: 1px solid rgba(255, 255, 255, 0.08); }
+      .stat-item:nth-child(4n) { border-right: none; }
+      .rankings-grid { grid-template-columns: repeat(2, 1fr); }
+      .progression-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer { flex-direction: row; justify-content: space-between; text-align: left; }
+      .footer-logo { align-items: flex-start; }
+      .hero::before { top: 20%; right: 12%; }
     }
   </style>
 </head>
@@ -692,7 +601,7 @@
 <body>
 
   <section class="hero">
-    <div class="hero-left">
+    <div class="hero-content">
       <div class="hero-tag">Athlete Portfolio · 2026</div>
       <div class="hero-name">
         <span class="first">Michelle</span>
@@ -720,31 +629,24 @@
           <div class="meta-value">Free · Back · Fly</div>
         </div>
       </div>
-    </div>
 
-    <div class="hero-right">
-      <div class="hero-pb-card gold-card">
-        <div>
+      <div class="hero-pb-grid">
+        <div class="hero-pb-card gold-card">
           <div class="pb-label">Alltime PB · 50m Free LCM</div>
           <div class="pb-time">30.74</div>
           <div class="pb-pts">453 pts · MadWave Challenge · 29 Mar 2026</div>
         </div>
-      <div class="hero-pb-card">
-        <div>
+        <div class="hero-pb-card">
           <div class="pb-label">Alltime PB · 100m Free SCM</div>
           <div class="pb-time">1:07.37</div>
           <div class="pb-pts">414 pts · Arena Noortesari ProSwim · 7 Feb 2026</div>
         </div>
-      </div>
-      <div class="hero-pb-card">
-        <div>
+        <div class="hero-pb-card">
           <div class="pb-label">Alltime PB · 100m Back LCM</div>
           <div class="pb-time">1:16.21</div>
           <div class="pb-pts">421 pts · MadWave Challenge · 29 Mar 2026</div>
         </div>
-      </div>
-      <div class="hero-pb-card">
-        <div>
+        <div class="hero-pb-card">
           <div class="pb-label">Alltime PB · 50m Back LCM</div>
           <div class="pb-time">35.01</div>
           <div class="pb-pts">451 pts · MadWave Challenge · 28 Mar 2026</div>
@@ -760,19 +662,20 @@
     </div>
     <div class="stat-item">
       <div class="stat-num">453</div>
-      <div class="stat-label">Top FINA pts (50m Free LCM)</div>
+      <div class="stat-label">Top FINA pts</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">#8</div>
-      <div class="stat-label">EST -14y · 100m Back LCM · 2026</div>
+      <div class="stat-label">EST -14y 100m Back LCM</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">#10</div>
-      <div class="stat-label">EST -14y · 50m Back LCM · 2026</div>
+      <div class="stat-label">EST -14y 50m Back LCM</div>
     </div>
   </div>
 
   <section class="section">
+    <div class="section-bg-img pb-bg"></div>
     <div class="section-header">
       <div class="section-label">Alltime Records</div>
       <div class="section-title">Personal Bests</div>
@@ -788,216 +691,95 @@
       </div>
     </div>
 
-    <div class="pb-grid">
-
-      <div class="stroke-block">
-        <div class="stroke-title">Freestyle</div>
-        <table class="pb-table">
-          <thead>
-            <tr>
-              <th>Event</th>
-              <th>Pool</th>
-              <th>Time</th>
-              <th>Date · City</th>
-              <th>Pts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>25m Free</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td class="time-cell">22.17</td>
-              <td>10 Apr 2022 · Keila</td>
-              <td class="pts-cell">103</td>
-            </tr>
-            <tr>
-              <td>50m Free</td>
-              <td><span class="pool-lcm">LCM</span></td>
-              <td class="time-cell">30.74</td>
-              <td>29 Mar 2026 · Tartu</td>
-              <td class="pts-cell">453</td>
-            </tr>
-            <tr>
-              <td>50m Free</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td class="time-cell">30.78</td>
-              <td>14 Nov 2025 · Kohtla-Järve</td>
-              <td class="pts-cell">408</td>
-            </tr>
-            <tr>
-              <td>100m Free</td>
-              <td><span class="pool-lcm">LCM</span></td>
-              <td class="time-cell">1:08.40</td>
-              <td>28 Mar 2026 · Tartu</td>
-              <td class="pts-cell">432</td>
-            </tr>
-            <tr>
-              <td>100m Free</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td class="time-cell">1:07.37</td>
-              <td>7 Feb 2026 · Tartu</td>
-              <td class="pts-cell">414</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="stroke-block">
-        <div class="stroke-title">Backstroke</div>
-        <table class="pb-table">
-          <thead>
-            <tr>
-              <th>Event</th>
-              <th>Pool</th>
-              <th>Time</th>
-              <th>Date · City</th>
-              <th>Pts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>25m Back</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td class="time-cell">21.71</td>
-              <td>12 Nov 2023 · Tallinn</td>
-              <td class="pts-cell">163</td>
-            </tr>
-            <tr>
-              <td>50m Back</td>
-              <td><span class="pool-lcm">LCM</span></td>
-              <td class="time-cell">35.01</td>
-              <td>28 Mar 2026 · Tartu</td>
-              <td class="pts-cell">451</td>
-            </tr>
-            <tr>
-              <td>50m Back</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td class="time-cell">36.77</td>
-              <td>25 Oct 2025 · Kohtla-Järve</td>
-              <td class="pts-cell">323</td>
-            </tr>
-            <tr>
-              <td>100m Back</td>
-              <td><span class="pool-lcm">LCM</span></td>
-              <td class="time-cell">1:16.21</td>
-              <td>29 Mar 2026 · Tartu</td>
-              <td class="pts-cell">421</td>
-            </tr>
-            <tr>
-              <td>100m Back</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td class="time-cell">1:15.86</td>
-              <td>7 Feb 2026 · Tartu</td>
-              <td class="pts-cell">361</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="stroke-block">
-        <div class="stroke-title">Butterfly &amp; Medley</div>
-        <table class="pb-table">
-          <thead>
-            <tr>
-              <th>Event</th>
-              <th>Pool</th>
-              <th>Time</th>
-              <th>Date · City</th>
-              <th>Pts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>25m Fly</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td class="time-cell">26.15</td>
-              <td>29 Jan 2023 · Keila</td>
-              <td class="pts-cell">73</td>
-            </tr>
-            <tr>
-              <td>50m Fly</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td class="time-cell">41.32</td>
-              <td>31 May 2025 · Kohtla-Järve</td>
-              <td class="pts-cell">194</td>
-            </tr>
-            <tr>
-              <td>100m Fly</td>
-              <td><span class="pool-lcm">LCM</span></td>
-              <td class="time-cell">1:21.49</td>
-              <td>28 Mar 2026 · Tartu</td>
-              <td class="pts-cell">310</td>
-            </tr>
-            <tr>
-              <td>100m Medley</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td class="time-cell">1:27.45</td>
-              <td>6 Apr 2025 · Keila</td>
-              <td class="pts-cell">250</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="stroke-block">
-        <div class="stroke-title">World Aquatics Base Times Reference</div>
-        <table class="pb-table">
-          <thead>
-            <tr>
-              <th>Event</th>
-              <th>Pool</th>
-              <th>WA Base (W)</th>
-              <th>Michelle PB</th>
-              <th>%</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>50m Free</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td>22.83</td>
-              <td class="time-cell">30.78</td>
-              <td class="pts-cell">74.2%</td>
-            </tr>
-            <tr>
-              <td>50m Free</td>
-              <td><span class="pool-lcm">LCM</span></td>
-              <td>23.61</td>
-              <td class="time-cell">30.74</td>
-              <td class="pts-cell">76.8%</td>
-            </tr>
-            <tr>
-              <td>100m Free</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td>50.25</td>
-              <td class="time-cell">1:07.37</td>
-              <td class="pts-cell">74.6%</td>
-            </tr>
-            <tr>
-              <td>100m Back</td>
-              <td><span class="pool-scm">SCM</span></td>
-              <td>54.02</td>
-              <td class="time-cell">1:15.86</td>
-              <td class="pts-cell">71.2%</td>
-            </tr>
-            <tr>
-              <td>100m Back</td>
-              <td><span class="pool-lcm">LCM</span></td>
-              <td>57.13</td>
-              <td class="time-cell">1:16.21</td>
-              <td class="pts-cell">74.9%</td>
-            </tr>
-          </tbody>
-        </table>
-        <div style="font-size:0.68rem;color:var(--muted);margin-top:0.75rem;">
-          SCM base times: 01.09.2025–31.08.2026 · LCM base times: 01.01.2026–31.12.2026
-        </div>
-      </div>
-
+    <div class="table-wrap">
+      <table class="pb-table">
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Pool</th>
+            <th>Time</th>
+            <th>Date · City</th>
+            <th>Pts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>50m Free</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="time-cell">30.74</td>
+            <td>29 Mar 2026 · Tartu</td>
+            <td class="pts-cell">453</td>
+          </tr>
+          <tr>
+            <td>50m Free</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="time-cell">30.78</td>
+            <td>14 Nov 2025 · Kohtla-Järve</td>
+            <td class="pts-cell">408</td>
+          </tr>
+          <tr>
+            <td>100m Free</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="time-cell">1:08.40</td>
+            <td>28 Mar 2026 · Tartu</td>
+            <td class="pts-cell">432</td>
+          </tr>
+          <tr>
+            <td>100m Free</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="time-cell">1:07.37</td>
+            <td>7 Feb 2026 · Tartu</td>
+            <td class="pts-cell">414</td>
+          </tr>
+          <tr>
+            <td>50m Back</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="time-cell">35.01</td>
+            <td>28 Mar 2026 · Tartu</td>
+            <td class="pts-cell">451</td>
+          </tr>
+          <tr>
+            <td>50m Back</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="time-cell">36.77</td>
+            <td>25 Oct 2025 · Kohtla-Järve</td>
+            <td class="pts-cell">323</td>
+          </tr>
+          <tr>
+            <td>100m Back</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="time-cell">1:16.21</td>
+            <td>29 Mar 2026 · Tartu</td>
+            <td class="pts-cell">421</td>
+          </tr>
+          <tr>
+            <td>100m Back</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="time-cell">1:15.86</td>
+            <td>7 Feb 2026 · Tartu</td>
+            <td class="pts-cell">361</td>
+          </tr>
+          <tr>
+            <td>100m Fly</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="time-cell">1:21.49</td>
+            <td>28 Mar 2026 · Tartu</td>
+            <td class="pts-cell">310</td>
+          </tr>
+          <tr>
+            <td>50m Fly</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="time-cell">41.32</td>
+            <td>31 May 2025 · Kohtla-Järve</td>
+            <td class="pts-cell">194</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
   <section class="section section-alt">
+    <div class="section-bg-img rank-bg"></div>
     <div class="section-header">
       <div class="section-label">Season 2026 · EST</div>
       <div class="section-title">National Rankings</div>
@@ -1066,8 +848,7 @@
 
       <div class="rank-card">
         <div class="rank-event">100m Backstroke <span class="rank-pool-tag scm">SCM</span></div>
-      
-               <div class="rank-numbers">
+        <div class="rank-numbers">
           <div class="rank-num-block">
             <div class="rank-num">#16</div>
             <div class="rank-num-label">EST under 14</div>
@@ -1095,23 +876,8 @@
         </div>
       </div>
 
-      <div class="rank-card">
-        <div class="rank-event">100m Butterfly <span class="rank-pool-tag lcm">LCM</span></div>
-        <div class="rank-numbers">
-          <div class="rank-num-block">
-            <div class="rank-num">#21</div>
-            <div class="rank-num-label">EST under 14</div>
-          </div>
-          <div class="rank-divider"></div>
-          <div class="rank-num-block">
-            <div class="rank-num open-rank">#45</div>
-            <div class="rank-num-label">EST open</div>
-          </div>
-        </div>
-      </div>
-
     </div>
-    <div style="margin-top:1rem;font-size:0.72rem;color:var(--muted);">
+    <div style="margin-top:1rem;font-size:0.68rem;color:var(--muted);position:relative;z-index:1;">
       Season: 01 Jan – 31 Dec 2026 · Source: swimrankings.net
     </div>
   </section>
@@ -1125,118 +891,91 @@
 
       <div class="prog-card">
         <div class="prog-event">50m Freestyle · SCM best per season</div>
-        <div class="prog-best">30.78 <span style="font-size:1rem;color:var(--muted);">SCM</span></div>
+        <div class="prog-best">30.78</div>
         <div class="prog-row">
           <div class="prog-year">2022</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:42%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:42%"></div></div>
           <div class="prog-val">46.40</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2023</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:55%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:55%"></div></div>
           <div class="prog-val">40.42</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2024</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:72%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:72%"></div></div>
           <div class="prog-val">33.73</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2025</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar best" style="width:100%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar best" style="width:100%"></div></div>
           <div class="prog-val highlight">30.78</div>
         </div>
       </div>
 
       <div class="prog-card">
         <div class="prog-event">50m Backstroke · SCM best per season</div>
-        <div class="prog-best">36.77 <span style="font-size:1rem;color:var(--muted);">SCM</span></div>
+        <div class="prog-best">36.77</div>
         <div class="prog-row">
           <div class="prog-year">2022</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:38%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:38%"></div></div>
           <div class="prog-val">55.88</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2023</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:55%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:55%"></div></div>
           <div class="prog-val">47.55</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2024</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:75%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:75%"></div></div>
           <div class="prog-val">40.04</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2025</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar best" style="width:100%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar best" style="width:100%"></div></div>
           <div class="prog-val highlight">36.77</div>
         </div>
       </div>
 
       <div class="prog-card">
         <div class="prog-event">100m Freestyle · SCM best per season</div>
-        <div class="prog-best">1:07.37 <span style="font-size:1rem;color:var(--muted);">SCM</span></div>
+        <div class="prog-best">1:07.37</div>
         <div class="prog-row">
           <div class="prog-year">2024</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:60%"></div>
-          </div>
-          <div class="prog-val">1:18.43</div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:60%"></div></div>
+          <div
+                      <div class="prog-val">1:18.43</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2025</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:85%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:85%"></div></div>
           <div class="prog-val">1:07.59</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2026</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar best" style="width:100%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar best" style="width:100%"></div></div>
           <div class="prog-val highlight">1:07.37</div>
         </div>
       </div>
 
       <div class="prog-card">
         <div class="prog-event">100m Backstroke · SCM best per season</div>
-        <div class="prog-best">1:15.86 <span style="font-size:1rem;color:var(--muted);">SCM</span></div>
+        <div class="prog-best">1:15.86</div>
         <div class="prog-row">
           <div class="prog-year">2024</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:55%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:55%"></div></div>
           <div class="prog-val">1:26.54</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2025</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar" style="width:82%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar" style="width:82%"></div></div>
           <div class="prog-val">1:16.34</div>
         </div>
         <div class="prog-row">
           <div class="prog-year">2026</div>
-          <div class="prog-bar-wrap">
-            <div class="prog-bar best" style="width:100%"></div>
-          </div>
+          <div class="prog-bar-wrap"><div class="prog-bar best" style="width:100%"></div></div>
           <div class="prog-val highlight">1:15.86</div>
         </div>
       </div>
@@ -1249,143 +988,145 @@
       <div class="section-label">Race Results</div>
       <div class="section-title">Competition History — Personal Bests</div>
     </div>
-    <table class="comp-table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Meet</th>
-          <th>City</th>
-          <th>Event</th>
-          <th>Pool</th>
-          <th>Time</th>
-          <th>FINA Pts</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="td-date">29 Mar 2026</td>
-          <td class="td-meet">MadWave Challenge</td>
-          <td class="td-city">Tartu</td>
-          <td class="td-event">50m Free</td>
-          <td><span class="pool-badge lcm">LCM</span></td>
-          <td class="td-time">30.74</td>
-          <td class="td-pts">453</td>
-        </tr>
-        <tr>
-          <td class="td-date">28 Mar 2026</td>
-          <td class="td-meet">MadWave Challenge</td>
-          <td class="td-city">Tartu</td>
-          <td class="td-event">100m Free</td>
-          <td><span class="pool-badge lcm">LCM</span></td>
-          <td class="td-time">1:08.40</td>
-          <td class="td-pts">432</td>
-        </tr>
-        <tr>
-          <td class="td-date">28 Mar 2026</td>
-          <td class="td-meet">MadWave Challenge</td>
-          <td class="td-city">Tartu</td>
-          <td class="td-event">50m Back</td>
-          <td><span class="pool-badge lcm">LCM</span></td>
-          <td class="td-time">35.01</td>
-          <td class="td-pts">451</td>
-        </tr>
-        <tr>
-          <td class="td-date">29 Mar 2026</td>
-          <td class="td-meet">MadWave Challenge</td>
-          <td class="td-city">Tartu</td>
-          <td class="td-event">100m Back</td>
-          <td><span class="pool-badge lcm">LCM</span></td>
-          <td class="td-time">1:16.21</td>
-          <td class="td-pts">421</td>
-        </tr>
-        <tr>
-          <td class="td-date">28 Mar 2026</td>
-          <td class="td-meet">MadWave Challenge</td>
-          <td class="td-city">Tartu</td>
-          <td class="td-event">100m Fly</td>
-          <td><span class="pool-badge lcm">LCM</span></td>
-          <td class="td-time">1:21.49</td>
-          <td class="td-pts">310</td>
-        </tr>
-        <tr>
-          <td class="td-date">7 Feb 2026</td>
-          <td class="td-meet">Arena Noortesari ProSwim</td>
-          <td class="td-city">Tartu</td>
-          <td class="td-event">100m Free</td>
-          <td><span class="pool-badge scm">SCM</span></td>
-          <td class="td-time">1:07.37</td>
-          <td class="td-pts">414</td>
-        </tr>
-        <tr>
-          <td class="td-date">7 Feb 2026</td>
-          <td class="td-meet">Arena Noortesari ProSwim</td>
-          <td class="td-city">Tartu</td>
-          <td class="td-event">100m Back</td>
-          <td><span class="pool-badge scm">SCM</span></td>
-          <td class="td-time">1:15.86</td>
-          <td class="td-pts">361</td>
-        </tr>
-        <tr>
-          <td class="td-date">14 Nov 2025</td>
-          <td class="td-meet">Eesti juunioride ja noorte</td>
-          <td class="td-city">Kohtla-Järve</td>
-          <td class="td-event">50m Free</td>
-          <td><span class="pool-badge scm">SCM</span></td>
-          <td class="td-time">30.78</td>
-          <td class="td-pts">408</td>
-        </tr>
-        <tr>
-          <td class="td-date">25 Oct 2025</td>
-          <td class="td-meet">Lahtised Sprindi MV</td>
-          <td class="td-city">Kohtla-Järve</td>
-          <td class="td-event">50m Back</td>
-          <td><span class="pool-badge scm">SCM</span></td>
-          <td class="td-time">36.77</td>
-          <td class="td-pts">323</td>
-        </tr>
-        <tr>
-          <td class="td-date">31 May 2025</td>
-          <td class="td-meet">Vetesellist Vahumeistriks</td>
-          <td class="td-city">Kohtla-Järve</td>
-          <td class="td-event">50m Fly</td>
-          <td><span class="pool-badge scm">SCM</span></td>
-          <td class="td-time">41.32</td>
-          <td class="td-pts">194</td>
-        </tr>
-        <tr>
-          <td class="td-date">6 Apr 2025</td>
-          <td class="td-meet">Ujumisvoistlus Koik Meie</td>
-          <td class="td-city">Keila</td>
-          <td class="td-event">100m Medley</td>
-          <td><span class="pool-badge scm">SCM</span></td>
-          <td class="td-time">1:27.45</td>
-          <td class="td-pts">250</td>
-        </tr>
-        <tr>
-          <td class="td-date">12 Nov 2023</td>
-          <td class="td-meet">FunSwim Cup 2 etapp</td>
-          <td class="td-city">Tallinn</td>
-          <td class="td-event">25m Back</td>
-          <td><span class="pool-badge scm">SCM</span></td>
-          <td class="td-time">21.71</td>
-          <td class="td-pts">163</td>
-        </tr>
-        <tr>
-          <td class="td-date">10 Apr 2022</td>
-          <td class="td-meet">Ujumisvoistlus Koik Meie</td>
-          <td class="td-city">Keila</td>
-          <td class="td-event">25m Free</td>
-          <td><span class="pool-badge scm">SCM</span></td>
-          <td class="td-time">22.17</td>
-          <td class="td-pts">103</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Meet</th>
+            <th>City</th>
+            <th>Event</th>
+            <th>Pool</th>
+            <th>Time</th>
+            <th>FINA Pts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-date">29 Mar 2026</td>
+            <td class="td-meet">MadWave Challenge</td>
+            <td class="td-city">Tartu</td>
+            <td class="td-event">50m Free</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="td-time">30.74</td>
+            <td class="td-pts">453</td>
+          </tr>
+          <tr>
+            <td class="td-date">28 Mar 2026</td>
+            <td class="td-meet">MadWave Challenge</td>
+            <td class="td-city">Tartu</td>
+            <td class="td-event">100m Free</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="td-time">1:08.40</td>
+            <td class="td-pts">432</td>
+          </tr>
+          <tr>
+            <td class="td-date">28 Mar 2026</td>
+            <td class="td-meet">MadWave Challenge</td>
+            <td class="td-city">Tartu</td>
+            <td class="td-event">50m Back</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="td-time">35.01</td>
+            <td class="td-pts">451</td>
+          </tr>
+          <tr>
+            <td class="td-date">29 Mar 2026</td>
+            <td class="td-meet">MadWave Challenge</td>
+            <td class="td-city">Tartu</td>
+            <td class="td-event">100m Back</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="td-time">1:16.21</td>
+            <td class="td-pts">421</td>
+          </tr>
+          <tr>
+            <td class="td-date">28 Mar 2026</td>
+            <td class="td-meet">MadWave Challenge</td>
+            <td class="td-city">Tartu</td>
+            <td class="td-event">100m Fly</td>
+            <td><span class="pool-badge lcm">LCM</span></td>
+            <td class="td-time">1:21.49</td>
+            <td class="td-pts">310</td>
+          </tr>
+          <tr>
+            <td class="td-date">7 Feb 2026</td>
+            <td class="td-meet">Arena Noortesari ProSwim</td>
+            <td class="td-city">Tartu</td>
+            <td class="td-event">100m Free</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="td-time">1:07.37</td>
+            <td class="td-pts">414</td>
+          </tr>
+          <tr>
+            <td class="td-date">7 Feb 2026</td>
+            <td class="td-meet">Arena Noortesari ProSwim</td>
+            <td class="td-city">Tartu</td>
+            <td class="td-event">100m Back</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="td-time">1:15.86</td>
+            <td class="td-pts">361</td>
+          </tr>
+          <tr>
+            <td class="td-date">14 Nov 2025</td>
+            <td class="td-meet">Eesti juunioride ja noorte</td>
+            <td class="td-city">Kohtla-Järve</td>
+            <td class="td-event">50m Free</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="td-time">30.78</td>
+            <td class="td-pts">408</td>
+          </tr>
+          <tr>
+            <td class="td-date">25 Oct 2025</td>
+            <td class="td-meet">Lahtised Sprindi MV</td>
+            <td class="td-city">Kohtla-Järve</td>
+            <td class="td-event">50m Back</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="td-time">36.77</td>
+            <td class="td-pts">323</td>
+          </tr>
+          <tr>
+            <td class="td-date">31 May 2025</td>
+            <td class="td-meet">Vetesellist Vahumeistriks</td>
+            <td class="td-city">Kohtla-Järve</td>
+            <td class="td-event">50m Fly</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="td-time">41.32</td>
+            <td class="td-pts">194</td>
+          </tr>
+          <tr>
+            <td class="td-date">6 Apr 2025</td>
+            <td class="td-meet">Ujumisvoistlus Koik Meie</td>
+            <td class="td-city">Keila</td>
+            <td class="td-event">100m Medley</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="td-time">1:27.45</td>
+            <td class="td-pts">250</td>
+          </tr>
+          <tr>
+            <td class="td-date">12 Nov 2023</td>
+            <td class="td-meet">FunSwim Cup 2 etapp</td>
+            <td class="td-city">Tallinn</td>
+            <td class="td-event">25m Back</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="td-time">21.71</td>
+            <td class="td-pts">163</td>
+          </tr>
+          <tr>
+            <td class="td-date">10 Apr 2022</td>
+            <td class="td-meet">Ujumisvoistlus Koik Meie</td>
+            <td class="td-city">Keila</td>
+            <td class="td-event">25m Free</td>
+            <td><span class="pool-badge scm">SCM</span></td>
+            <td class="td-time">22.17</td>
+            <td class="td-pts">103</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <footer class="footer">
     <div class="footer-logo">
-      <img src="AQUAWAY.png" alt="Aquaway">
+      <img src="IMG_2211.jpg" alt="Aquaway">
       <span>Spordikool</span>
     </div>
     <div class="footer-info">
@@ -1393,7 +1134,7 @@
       Aquaway Spordikool · EST · Born 2014<br>
       Portfolio compiled April 2026 · Data: swimrankings.net
     </div>
-    <div class="footer-right">
+    <div class="footer-info">
       Tallinn, Estonia<br>
       Founded 2011 · Official ESR sports school<br>
       Coach: Maria Letunova, BPE
@@ -1401,5 +1142,4 @@
   </footer>
 
 </body>
-
 </html>
